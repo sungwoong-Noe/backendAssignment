@@ -1,6 +1,7 @@
 package com.example.assignment.article.config;
 
 import com.example.assignment.article.domain.Article;
+import com.example.assignment.comment.domain.request.CommentRequest;
 import lombok.Getter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -34,26 +35,13 @@ public class ArticleList {
 
     public Article getDataById(Long id) {
 
-        return dataList.stream().filter(article -> Objects.equals(article.getId(), id)).findFirst().orElse(null);
+        return this.dataList.stream().filter(article -> Objects.equals(article.getId(), id)).findFirst().orElse(null);
     }
 
-//    @Bean
-//    public List<Article> getArticleList() {
-//
-//        List<Article> articles = new ArrayList<>();
-//
-//        for (int i = 0; i <  20; i++) {
-//
-//            Long id = (long) i + 1;
-//
-//            String title = "title" + id;
-//            String content = "content" + id;
-//            String writer = " writer" + id;
-//
-//            articles.add(Article.of(id, title, content, writer));
-//        }
-//
-//
-//        return articles;
-//    }
+
+    public void registCommantByArticleId(CommentRequest request) {
+        Article article = this.getDataById(request.getArticleId());
+        article.addComment(request);
+    }
+
 }
