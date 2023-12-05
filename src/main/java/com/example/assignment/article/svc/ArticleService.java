@@ -18,7 +18,7 @@ public class ArticleService {
 
     public List<Article> getArticleList() {
 
-        log.info("==== 게시글 조회 ====");
+        log.info("==== 게시글 목록 조회 ====");
 
         return articleList.getDataList();
     }
