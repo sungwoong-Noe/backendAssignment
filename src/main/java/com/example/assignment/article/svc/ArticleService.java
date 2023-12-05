@@ -23,4 +23,11 @@ public class ArticleService {
         return articleList.getDataList();
     }
 
+
+    public Article getArticle(Long articleId) {
+
+        log.info("==== 게시글 상세 조회 ID: {} ====", articleId);
+
+        return articleList.getDataById(articleId);
+    }
 }

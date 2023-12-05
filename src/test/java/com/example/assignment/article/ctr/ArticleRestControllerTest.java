@@ -42,6 +42,25 @@ public class ArticleRestControllerTest {
     }
 
 
+    @Test
+    @DisplayName("게시글 상세 조회")
+    public void getArticle() throws Exception{
+
+        //given
+        Long id = 1L;
+
+
+        //expected
+        mvc.perform(get("/article/{id}", id).contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.content().contentType("application/json"))
+                .andExpect(jsonPath("$.id").value(id))
+                .andExpect(jsonPath("$.title").value("title" + id))
+                .andExpect(jsonPath("$.content").value("content" + id))
+                .andDo(print());
+    }
+
+
 
 
 }

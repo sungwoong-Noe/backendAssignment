@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Component
 public class ArticleList {
@@ -28,6 +29,12 @@ public class ArticleList {
 
     public List<Article> getDataList() {
         return dataList;
+    }
+
+
+    public Article getDataById(Long id) {
+
+        return dataList.stream().filter(article -> Objects.equals(article.getId(), id)).findFirst().orElse(null);
     }
 
 //    @Bean
