@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-@Getter
 public class ArticleList {
 
     private List<Article> dataList = new ArrayList<>();
@@ -27,8 +26,11 @@ public class ArticleList {
         }
     }
 
+    public List<Article> getDataList() {
+        return dataList;
+    }
 
-    //    @Bean
+//    @Bean
 //    public List<Article> getArticleList() {
 //
 //        List<Article> articles = new ArrayList<>();
