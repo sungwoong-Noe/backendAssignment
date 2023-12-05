@@ -30,7 +30,16 @@ public class Article {
         this.registDate = registDate;
     }
 
-    public Article of(ArticleRequest request) {
+    public static Article of(Long id, String title, String content, String writer){
+        return Article.builder()
+                .id(id)
+                .title(title)
+                .content(content)
+                .registDate(LocalDateTime.now())
+                .build();
+    }
+
+    public static Article of(ArticleRequest request) {
 
         return Article.builder()
                 .id(request.getId())

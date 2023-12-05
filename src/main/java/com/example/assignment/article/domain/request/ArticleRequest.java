@@ -15,4 +15,5 @@ public class ArticleRequest {
 
     private String writer;
 
+
 }
