@@ -1,6 +1,6 @@
-package com.example.assignment.article.domain;
+package com.example.assignment.comment.domain;
 
-import com.example.assignment.article.domain.request.CommentRequest;
+import com.example.assignment.comment.domain.request.CommentRequest;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -27,12 +27,11 @@ public class Comment {
     }
 
 
-    public Comment of(CommentRequest request) {
+    public static Comment of(CommentRequest request) {
         return Comment.builder().id(request.getId())
                 .content(request.getContent())
                 .writer(request.getWriter())
                 .registDate(LocalDateTime.now())
                 .build();
-
     }
 }
